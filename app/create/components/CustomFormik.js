@@ -36,17 +36,17 @@ function CustomFormik() {
     const router = useRouter();
 
     const initialValues = {
-        title: "Frontend developer",
-        organization: "Deep Developers",
-        salary: "1500/month",
+        title: "",
+        organization: "",
+        salary: "",
         jobSector: "",
         jobType: "",
-        experience: "3 years",
-        description: "looking for someone with great exp in figma",
-        interviewDetails: "at teh dbee office",
-        education: "B.tech",
+        experience: "",
+        description: "",
+        interviewDetails: "",
+        education: "",
         deadline: "",
-        applyNowLink: "fasjsdlik",
+        applyNowLink: "",
         district: "",
     };
     const formik = useFormik({

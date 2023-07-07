@@ -43,7 +43,7 @@ const MyJobs = () => {
                                         <span className="">
                                             <MapPin size={10} />
                                         </span>
-                                        {job.district.name}
+                                        {job.district?.name}
                                     </li>
                                     <li className="flex items-center gap-1">
                                         <span className="">
