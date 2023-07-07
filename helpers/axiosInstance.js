@@ -1,1 +1,1 @@
-export const BaseURL = "https://greensweep.in/";
+export const BaseURL = "https://api.punjabvacancies.live/";
