@@ -11,10 +11,20 @@ async function getJob({ params }) {
         },
     });
     const data = await res.json();
-    console.log(data);
     return data.job;
 }
-
+export async function generateMetadata({ params, searchParams }, parent) {
+    const res = await fetch(BaseURL + "api/v1/job/" + params.slug, {
+        next: {
+            revalidate: 10,
+        },
+    });
+    const { job } = await res.json();
+    return {
+        title: `${job.title} - ${job.organization}`,
+        disription: `We are Hiring ${job.title} in ${job.organization} in ${job.district.name} in punjab - Punjabvacancies`,
+    };
+}
 export default async function JobPage(props) {
     const jobData = await getJob(props);
     if (jobData === null) {
