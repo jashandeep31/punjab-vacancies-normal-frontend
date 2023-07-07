@@ -22,7 +22,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     const { job } = await res.json();
     return {
         title: `${job.title} - ${job.organization}`,
-        disription: `We are Hiring ${job.title} in ${job.organization} in ${job.district.name} in punjab - Punjabvacancies`,
+        description: `We are Hiring ${job.title} in ${job.organization} in ${job.district.name} in punjab - Punjabvacancies`,
     };
 }
 export default async function JobPage(props) {
