@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import html2canvas from "html2canvas";
 import { ArrowBigDownDash, Link } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import QRCode from "react-qr-code";
 const JobImage = (props) => {
     const [job, setjob] = useState();
     const [ImageLink, setImageLink] = useState("");
@@ -47,11 +48,11 @@ const JobImage = (props) => {
             <Navbar />
             <div className="container flex justify-center py-4 mx-auto">
                 {!canvasStatus ? (
-                    <div className="opacity-0">
+                    <div className="opacity-100">
                         <div className="flex justify-between " id="banner">
-                            <div className="flex flex-col justify-between w-[1280px] h-[1280px] border lightBg">
-                                <div className="p-8 header">
-                                    <h1 className="text-[150px] font-black">
+                            <div className="flex flex-col  w-[1280px] h-[1280px] border lightBg">
+                                <div className="px-8 pt-8 header">
+                                    <h1 className="text-[100px] font-black">
                                         We are hiring
                                     </h1>
                                     <ul className="mt-12 text-[50px]">
@@ -84,9 +85,9 @@ const JobImage = (props) => {
                                         </li>
                                         <li>
                                             <span className="mr-6 font-bold">
-                                                Job sector:
+                                                District:
                                             </span>
-                                            {job.jobSector}
+                                            {job.district.name}
                                         </li>
                                         <li>
                                             <span className="mr-6 font-bold">
@@ -108,7 +109,19 @@ const JobImage = (props) => {
                                         </li>
                                     </ul>
                                 </div>
-                                <div className="p-16 text-4xl footer">
+                                <div className="flex items-center h-full gap-12 mx-8">
+                                    <QRCode
+                                        style={{
+                                            height: "100%",
+                                        }}
+                                        value={
+                                            "https://punjabvacancies.live/job/" +
+                                            job.slug
+                                        }
+                                    />
+                                    <p className="text-4xl">Scan To apply</p>
+                                </div>
+                                <div className="px-16 pb-8 text-4xl footer">
                                     <p className="flex justify-between font-bold ">
                                         <span>
                                             Website: punjabvacancies.live
