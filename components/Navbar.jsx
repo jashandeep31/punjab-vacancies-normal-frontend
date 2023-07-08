@@ -1,8 +1,11 @@
 "use client";
 import {
     AlignJustify,
+    HeartHandshake,
     Home,
+    Newspaper,
     ScrollText,
+    SmartphoneNfc,
     StickyNote,
     User,
     UserCheck2,
@@ -34,6 +37,48 @@ const Navbar = () => {
                         <span className="text-slate-500">Home</span>
                     </Link>
                 </li>
+                {userContextData.userState !== "authenticated" ? (
+                    <li>
+                        <Link
+                            href="/about-us"
+                            className="flex items-center gap-2"
+                        >
+                            <Newspaper size={14} className="text-primary-500" />
+                            <span className="text-slate-500">About Us</span>
+                        </Link>
+                    </li>
+                ) : null}
+                {userContextData.userState !== "authenticated" ? (
+                    <li>
+                        <Link
+                            href="/terms-conditions"
+                            className="flex items-center gap-2"
+                        >
+                            <HeartHandshake
+                                size={14}
+                                className="text-primary-500"
+                            />
+                            <span className="text-slate-500">
+                                {" "}
+                                Terms & Conditions
+                            </span>
+                        </Link>
+                    </li>
+                ) : null}
+                {userContextData.userState !== "authenticated" ? (
+                    <li>
+                        <Link
+                            href="/contact-us"
+                            className="flex items-center gap-2"
+                        >
+                            <SmartphoneNfc
+                                size={14}
+                                className="text-primary-500"
+                            />
+                            <span className="text-slate-500"> Contact Us</span>
+                        </Link>
+                    </li>
+                ) : null}
                 {userContextData?.userData?.role === "manager" ? (
                     <li>
                         <Link
