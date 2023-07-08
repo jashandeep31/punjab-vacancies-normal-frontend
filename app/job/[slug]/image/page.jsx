@@ -55,74 +55,74 @@ const JobImage = (props) => {
                                     <h1 className="text-[100px] font-black">
                                         We are hiring
                                     </h1>
-                                    <ul className="mt-12 text-[50px]">
+                                    <ul className="mt-12 text-[42px]">
                                         <li>
-                                            <span className="mr-6 font-bold">
+                                            <span className="mr-6 font-medium">
                                                 Profile:
                                             </span>
                                             {job.title}
                                         </li>
                                         <li>
-                                            <span className="mr-6 font-bold">
+                                            <span className="mr-6 font-medium">
                                                 organization:
                                             </span>
 
                                             {job.organization}
                                         </li>
                                         <li>
-                                            <span className="mr-6 font-bold">
+                                            <span className="mr-6 font-medium">
                                                 District:
                                             </span>
 
                                             {job.district.name}
                                         </li>
                                         <li>
-                                            <span className="mr-6 font-bold">
+                                            <span className="mr-6 font-medium">
                                                 Salary:
                                             </span>
 
                                             {job.salary}
                                         </li>
                                         <li>
-                                            <span className="mr-6 font-bold">
+                                            <span className="mr-6 font-medium">
                                                 District:
                                             </span>
                                             {job.district.name}
                                         </li>
                                         <li>
-                                            <span className="mr-6 font-bold">
+                                            <span className="mr-6 font-medium">
                                                 Job type:
                                             </span>
                                             {job.jobType}
                                         </li>
                                         <li>
-                                            <span className="mr-6 font-bold">
+                                            <span className="mr-6 font-medium">
                                                 Experience:
                                             </span>
                                             {job.experience}
                                         </li>
                                         <li>
-                                            <span className="mr-6 font-bold">
+                                            <span className="mr-6 font-medium">
                                                 Education:
                                             </span>
                                             {job.education}
                                         </li>
                                     </ul>
                                 </div>
-                                <div className="flex items-center h-full gap-12 mx-8">
+                                <div className="flex items-center justify-center h-full gap-12 mx-8">
                                     <QRCode
                                         style={{
                                             height: "100%",
                                         }}
+                                        bgColor="#9caaff"
                                         value={
                                             "https://punjabvacancies.live/job/" +
                                             job.slug
                                         }
                                     />
-                                    <p className="text-4xl">Scan To apply</p>
                                 </div>
                                 <div className="px-16 pb-8 text-4xl footer">
-                                    <p className="flex justify-between font-bold ">
+                                    <p className="flex justify-between font-medium ">
                                         <span>
                                             Website: punjabvacancies.live
                                         </span>
