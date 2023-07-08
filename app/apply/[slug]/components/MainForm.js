@@ -121,7 +121,7 @@ const MainForm = ({ jobData }) => {
                         <textarea
                             className="block w-full h-24 px-2 py-2 text-sm border rounded focus:outline-none"
                             placeholder="I am professional..."
-                            name="about"
+                            name="address"
                             value={formik.values.address}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
