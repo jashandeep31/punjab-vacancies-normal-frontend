@@ -144,7 +144,7 @@ const JobImage = (props) => {
                 <a
                     className="flex items-center gap-2 px-4 py-2 duration-300 border rounded hover:bg-slate-100"
                     href={ImageLink}
-                    download={job.title}
+                    download={job.title + ".png"}
                 >
                     <ArrowBigDownDash className="h-6" />
                     Download Banner
