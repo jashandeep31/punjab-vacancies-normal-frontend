@@ -11,7 +11,7 @@ const MainForm = ({ jobData }) => {
             <h1 className="text-lg font-bold">{jobData.title}</h1>
 
             <form onSubmit={formik.handleSubmit}>
-                <div className="grid grid-cols-2 gap-6 mt-6">
+                <div className="grid gap-6 mt-6 md:grid-cols-2">
                     <div className="card">
                         <label className="mb-2 text-sm font-medium text-slate-700">
                             Full name:
