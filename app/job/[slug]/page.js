@@ -43,9 +43,11 @@ export default async function JobPage(props) {
                     <div className="md:col-span-3 ">
                         <h1 className="flex items-center gap-2 text-xl font-bold">
                             {jobData.title}{" "}
-                            <span>
-                                <Zap className="h-4 text-primary-500" />
-                            </span>
+                            {jobData.inbuiltForm ? (
+                                <span>
+                                    <Zap className="h-4 text-primary-500" />
+                                </span>
+                            ) : null}
                         </h1>
                         <p className="text-sm font-medium text-slate-500">
                             {jobData.organization}
