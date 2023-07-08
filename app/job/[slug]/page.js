@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import { BaseURL } from "@/helpers/axiosInstance";
 import React from "react";
 import { Zap } from "lucide-react";
-
+import Footer from "@/components/Footer";
 import LeftBar from "@/app/components/LeftBar";
 import CustomError from "@/app/404";
 import ApplyButtons from "./components/ApplyButtons";
@@ -125,6 +125,9 @@ export default async function JobPage(props) {
                         <LeftBar />
                     </div>
                 </div>
+            </div>
+            <div className="mt-12">
+                <Footer />
             </div>
         </div>
     );
