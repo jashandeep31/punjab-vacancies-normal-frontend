@@ -41,13 +41,13 @@ function CutomFormik(slug) {
     });
 
     const initialValues = {
-        name: "Jashandeep Singh",
-        phoneNumber: "9914299142",
-        education: "B.tech",
-        age: "20",
-        experience: "3 years",
-        address: "near to your office jsut a one call away",
-        about: "I am jashandeep singh professional web developer with experience of more than 3years. I have worked on many websites and this on one of from those",
+        name: "",
+        phoneNumber: "",
+        education: "",
+        age: "",
+        experience: "",
+        address: "",
+        about: "",
     };
 
     const formik = useFormik({

@@ -5,6 +5,7 @@ import { Loader2 } from "lucide-react";
 import React from "react";
 import CustomFormik from "./components/CustomFormik";
 import Districts from "./components/Districts";
+import Buttons from "./components/Buttons";
 export default function Create() {
     const Main = () => {
         const formik = CustomFormik();
@@ -294,26 +295,8 @@ export default function Create() {
                                     </p>
                                 ) : null}
                             </div>
-                            <div className="card">
-                                <label className="mb-2 text-sm font-medium text-slate-700">
-                                    Apply Link:
-                                    <span className="ml-2 text-xs">
-                                        (optional)
-                                    </span>
-                                </label>
-                                <input
-                                    type="text"
-                                    className="block w-full px-2 py-2 text-sm border rounded focus:outline-none"
-                                    placeholder="Enter URL to google form"
-                                    name="applyNowLink"
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    value={formik.values.applyNowLink}
-                                />
-                                {/* <button className="flex items-center gap-2 px-4 py-2 mt-3 text-sm border rounded text-slate-500">
-                                    Through our website{" "}
-                                    <CheckCircle2 size={20} />
-                                </button> */}
+                            <div className="md:col-span-2">
+                                <Buttons formik={formik} />
                             </div>
                         </div>
                         <div className="mt-6">
@@ -325,7 +308,7 @@ export default function Create() {
                                 {formik.isSubmitting ? (
                                     <span className="flex gap-1 item-center">
                                         <svg
-                                            class="animate-spin h-5 w-5 mr-3 "
+                                            className="w-5 h-5 mr-3 animate-spin "
                                             viewBox="0 0 24 24"
                                         >
                                             <Loader2 />

@@ -70,6 +70,13 @@ const JobImage = (props) => {
                                         </li>
                                         <li>
                                             <span className="mr-6 font-bold">
+                                                District:
+                                            </span>
+
+                                            {job.district.name}
+                                        </li>
+                                        <li>
+                                            <span className="mr-6 font-bold">
                                                 Salary:
                                             </span>
 

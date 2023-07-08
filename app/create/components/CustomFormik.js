@@ -7,15 +7,18 @@ import * as yup from "yup";
 import { BaseURL } from "@/helpers/axiosInstance";
 
 const createForm = yup.object({
-    title: yup.string().required("Title is required"),
-    organization: yup.string().required("Organization is required"),
-    salary: yup.string().required("Salary is required"),
-    jobSector: yup.string().required("Job sector is required"),
-    jobType: yup.string().required("Job type is required"),
-    experience: yup.string().required("Experience is required"),
-    description: yup.string().required("Description is required"),
-    interviewDetails: yup.string().required("Interview details are required"),
-    education: yup.string().required("Education is required"),
+    title: yup.string().required("Title is required").trim(),
+    organization: yup.string().required("Organization is required").trim(),
+    salary: yup.string().required("Salary is required").trim(),
+    jobSector: yup.string().required("Job sector is required").trim(),
+    jobType: yup.string().required("Job type is required").trim(),
+    experience: yup.string().required("Experience is required").trim(),
+    description: yup.string().required("Description is required").trim(),
+    interviewDetails: yup
+        .string()
+        .required("Interview details are required")
+        .trim(),
+    education: yup.string().required("Education is required").trim(),
     district: yup.string().required("District is required"),
     deadline: yup
         .date()
@@ -30,6 +33,7 @@ const createForm = yup.object({
             }
         )
         .required("Deadline is required"),
+    inbuiltForm: yup.boolean().required(),
 });
 
 function CustomFormik() {
@@ -48,6 +52,7 @@ function CustomFormik() {
         deadline: "",
         applyNowLink: "",
         district: "",
+        inbuiltForm: false,
     };
     const formik = useFormik({
         initialValues,
