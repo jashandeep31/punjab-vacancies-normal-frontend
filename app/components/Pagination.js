@@ -13,10 +13,6 @@ const Pagination = ({ searchParams, total }) => {
     const [nextStatus, setnextStatus] = useState(
         total > 10 * pageNumber ? true : false
     );
-    console.log(
-        "🚀 ~ file: Pagination.js:13 ~ Pagination ~ nextStatus:",
-        nextStatus
-    );
 
     useEffect(() => {
         setpageNumber(searchParams.page ? Number(searchParams.page) : 1);

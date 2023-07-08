@@ -17,9 +17,7 @@ const PageCient = ({ slug }) => {
             .then((res) => {
                 setApplications(res.data.applications);
             })
-            .catch((err) => {
-                console.log(err.response.data);
-            });
+            .catch((err) => {});
     };
 
     useEffect(() => {
@@ -43,6 +41,18 @@ const PageCient = ({ slug }) => {
                     <div className="flex flex-wrap filters">
                         <p className="font-bold ">
                             Filters:
+                            <button
+                                className={`px-3 py-1 mx-1 text-xs border rounded-full font-medium bg-slate-100 ${
+                                    filter === "new"
+                                        ? "border-green-500 text-green-500 font-bold"
+                                        : "text-black"
+                                }`}
+                                onClick={() => {
+                                    setfilter("new");
+                                }}
+                            >
+                                New
+                            </button>
                             <button
                                 className={`px-3 py-1 mx-1 text-xs border rounded-full font-medium bg-slate-100 ${
                                     filter === "all"

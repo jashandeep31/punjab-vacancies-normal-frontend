@@ -16,9 +16,7 @@ const ApplicationCard = ({ data, filter }) => {
             .then((res) => {
                 setstatus(res.data.application.status);
             })
-            .catch((err) => {
-                console.log(err.response.data);
-            });
+            .catch((err) => {});
     };
 
     const statusArchive = () => {
@@ -33,9 +31,7 @@ const ApplicationCard = ({ data, filter }) => {
             .then((res) => {
                 setstatus(res.data.application.status);
             })
-            .catch((err) => {
-                console.log(err.response.data);
-            });
+            .catch((err) => {});
     };
 
     if (filter !== "all" && filter !== status) return null;
@@ -55,6 +51,12 @@ const ApplicationCard = ({ data, filter }) => {
             <p className="text-sm font-bold text-slate-500">
                 Name:
                 <span className="font-normal text-black">{data.name}</span>
+            </p>
+            <p className="text-sm font-bold text-slate-500">
+                Phone Number:
+                <span className="font-normal text-black">
+                    {data.phoneNumber}
+                </span>
             </p>
             <p className="text-sm font-bold text-slate-500">
                 Age:

@@ -31,7 +31,6 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
 export default async function ApplyPage(props) {
     const jobData = await getJob(props);
-    console.log(jobData);
     if (jobData === null || jobData.inbuiltForm !== true) {
         return <CustomError />;
     }

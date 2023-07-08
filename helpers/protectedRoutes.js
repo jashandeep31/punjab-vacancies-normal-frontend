@@ -1,5 +1,6 @@
 "use client";
 import CustomPer from "@/app/401";
+import RequestPage from "@/app/RequestPage";
 import UserContext from "@/context/userContext";
 import React, { useContext } from "react";
 
@@ -14,7 +15,7 @@ const ProtectedRoutes = ({ children, permissions }) => {
             permissions.includes(userContextData?.userData?.role)
         ) {
             return <>{children}</>;
-        } else return <CustomPer />;
+        } else return <RequestPage />;
     }
     return <CustomPer />;
 };

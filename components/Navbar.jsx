@@ -5,6 +5,7 @@ import {
     ScrollText,
     StickyNote,
     User,
+    UserCheck2,
     X,
 } from "lucide-react";
 import Link from "next/link";
@@ -60,6 +61,22 @@ const Navbar = () => {
                             />
                             <span className="text-slate-500">
                                 Create New Post
+                            </span>
+                        </Link>{" "}
+                    </li>
+                ) : null}
+                {userContextData?.userData?.role === "user" ? (
+                    <li>
+                        <Link
+                            href="/create"
+                            className="flex items-center gap-2"
+                        >
+                            <UserCheck2
+                                size={14}
+                                className="text-primary-500"
+                            />
+                            <span className="text-slate-500">
+                                Become manager
                             </span>
                         </Link>{" "}
                     </li>

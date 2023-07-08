@@ -8,7 +8,6 @@ import Districts from "./components/Districts";
 export default function Create() {
     const Main = () => {
         const formik = CustomFormik();
-        console.log(formik.values.deadline);
         return (
             <div>
                 <Navbar />

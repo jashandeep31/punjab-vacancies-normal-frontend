@@ -17,9 +17,7 @@ const MyJobs = () => {
                     setjobs(res.data.jobs);
                 }
             })
-            .catch((err) => {
-                console.log(err);
-            });
+            .catch((err) => {});
 
         return () => {};
     }, []);

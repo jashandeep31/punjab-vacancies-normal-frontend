@@ -58,7 +58,6 @@ function CustomFormik() {
                     withCredentials: true,
                 })
                 .then((res) => {
-                    console.log(res);
                     if (res.status === 201) {
                         router.push("/job/" + res.data.job.slug);
                     }

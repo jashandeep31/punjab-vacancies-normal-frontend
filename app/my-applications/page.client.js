@@ -12,12 +12,9 @@ const MyApplications = () => {
         axios
             .get(BaseURL + "api/v1/application/my", { withCredentials: true })
             .then((res) => {
-                console.log(res.data);
                 setapplications(res.data.applications);
             })
-            .catch((err) => {
-                console.log(err);
-            });
+            .catch((err) => {});
     };
     useEffect(() => {
         getApplications();
