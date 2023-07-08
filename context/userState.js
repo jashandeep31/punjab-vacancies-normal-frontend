@@ -7,7 +7,7 @@ export default function UserState({ children }) {
     const [userState, setuserState] = useState("loading");
     const [userData, setuserData] = useState([]);
 
-    useEffect(() => {
+    const updateUser = () => {
         axios
             .get(BaseURL + "api/v1/auth", { withCredentials: true })
             .then((res) => {
@@ -20,12 +20,15 @@ export default function UserState({ children }) {
                 setuserData([]);
                 setuserState("unauthenticated");
             });
+    };
 
+    useEffect(() => {
+        updateUser();
         return () => {};
     }, []);
 
     return (
-        <UserContext.Provider value={{ userState, userData }}>
+        <UserContext.Provider value={{ userState, userData, updateUser }}>
             {children}
         </UserContext.Provider>
     );

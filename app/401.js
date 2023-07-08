@@ -10,11 +10,11 @@ export default function CustomPer() {
                         401 error
                     </p>
                     <h1 className="mt-3 text-2xl font-semibold text-gray-800 dark:text-white md:text-3xl">
-                        Not Allowed to visit this page.
+                        Request to become manager
                     </h1>
                     <p className="mt-4 text-gray-500 dark:text-gray-400">
-                        Sorry, please log in to access this page with the
-                        desired account.
+                        This page is only for the managers of the website. Click
+                        the button below to become our manager.
                     </p>
 
                     <div className="flex items-center mt-6 gap-x-3">

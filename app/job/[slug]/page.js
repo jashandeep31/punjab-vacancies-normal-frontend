@@ -1,9 +1,11 @@
 import Navbar from "@/components/Navbar";
 import { BaseURL } from "@/helpers/axiosInstance";
 import React from "react";
-import Link from "next/link";
+import { Zap } from "lucide-react";
+
 import LeftBar from "@/app/components/LeftBar";
 import CustomError from "@/app/404";
+import ApplyButtons from "./components/ApplyButtons";
 async function getJob({ params }) {
     const res = await fetch(BaseURL + "api/v1/job/" + params.slug, {
         next: {
@@ -20,10 +22,12 @@ export async function generateMetadata({ params, searchParams }, parent) {
         },
     });
     const { job } = await res.json();
-    return {
-        title: `${job.title} - ${job.organization}`,
-        description: `We are Hiring ${job.title} in ${job.organization} in ${job.district.name} in punjab - Punjabvacancies`,
-    };
+    if (job) {
+        return {
+            title: `${job.title} - ${job.organization}`,
+            description: `We are Hiring ${job.title} in ${job.organization} in ${job.district.name} in punjab - Punjabvacancies`,
+        };
+    }
 }
 export default async function JobPage(props) {
     const jobData = await getJob(props);
@@ -37,7 +41,12 @@ export default async function JobPage(props) {
             <div className="container mx-auto mt-12">
                 <div className="grid gap-6 md:grid-cols-4">
                     <div className="md:col-span-3 ">
-                        <h1 className="text-xl font-bold">{jobData.title}</h1>
+                        <h1 className="flex items-center gap-2 text-xl font-bold">
+                            {jobData.title}{" "}
+                            <span>
+                                <Zap className="h-4 text-primary-500" />
+                            </span>
+                        </h1>
                         <p className="text-sm font-medium text-slate-500">
                             {jobData.organization}
                         </p>
@@ -110,23 +119,7 @@ export default async function JobPage(props) {
                             </h4>
                             <p className="text-sm">{jobData.description}</p>
                         </div>
-
-                        <div className="flex items-center mt-6">
-                            {jobData.applyNowLink ? (
-                                <Link
-                                    className="px-4 py-3 text-sm font-bold rounded bg-primary-50 text-primary-500"
-                                    href={jobData.applyNowLink}
-                                >
-                                    Apply Now
-                                </Link>
-                            ) : null}
-                            <Link
-                                className="ml-4 text-sm font-bold rounded text-primary-500"
-                                href={"/job/" + jobData.slug + "/image"}
-                            >
-                                Share
-                            </Link>
-                        </div>
+                        <ApplyButtons jobData={jobData} />
                     </div>
                     <div className="hidden md:block">
                         <LeftBar />

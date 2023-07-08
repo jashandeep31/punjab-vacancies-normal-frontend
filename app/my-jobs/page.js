@@ -5,6 +5,7 @@ import { Book, Briefcase, Clock, Factory, MapPin } from "lucide-react";
 import ProtectedRoutes from "@/helpers/protectedRoutes";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Link from "next/link";
 const MyJobs = () => {
     const [jobs, setjobs] = useState([]);
 
@@ -75,9 +76,14 @@ const MyJobs = () => {
                                     </li>
                                 </ul>
                                 <div className="mt-3 ">
-                                    <button className="px-2 text-sm font-bold rounded hover:underline text-primary-500">
-                                        Edit Job
-                                    </button>
+                                    {job.inbuiltForm ? (
+                                        <Link
+                                            href={"/my-jobs/" + job.slug}
+                                            className="px-2 text-sm font-bold rounded hover:underline text-primary-500"
+                                        >
+                                            View Applications
+                                        </Link>
+                                    ) : null}
                                 </div>
                             </div>
                         ))}

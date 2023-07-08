@@ -1,5 +1,5 @@
 import React from "react";
-import { Book, Briefcase, Clock, Factory, MapPin } from "lucide-react";
+import { Book, Briefcase, Clock, Factory, MapPin, Zap } from "lucide-react";
 import Link from "next/link";
 
 const JobCard = ({ job }) => {
@@ -9,19 +9,24 @@ const JobCard = ({ job }) => {
     return (
         <div className="block p-4 mt-4 bg-white border rounded shadow md:mt-6">
             <div className="flex items-center w-full gap-4">
-                <span className="flex items-center justify-center w-12 h-12 rounded-full text-primary-600 bg-primary-100">
+                <span
+                    className={`flex items-center justify-center w-12 h-12 rounded-full text-primary-500 bg-primary-50`}
+                >
                     <span className="text-xl font-bold uppercase">
                         {job.organization[0]}
                     </span>
                 </span>
                 <div>
-                    <h2 className="text-sm font-bold">{job.title}</h2>
-                    <h6 className="text-xs font-bold capitalize text-slate-500">
-                        {job.byTeam ? (
-                            <span>{job.orgName}</span>
-                        ) : (
-                            <span>{job.organization}</span>
+                    <h2 className="flex items-center gap-1 text-sm font-bold">
+                        {job.title}{" "}
+                        {job.inbuiltForm !== true ? null : (
+                            <span>
+                                <Zap className="h-4 text-primary-500" />
+                            </span>
                         )}
+                    </h2>
+                    <h6 className="text-xs font-bold capitalize text-slate-500">
+                        <span>{job.organization}</span>
                     </h6>
                 </div>
             </div>
@@ -71,9 +76,9 @@ const JobCard = ({ job }) => {
                 <div className="flex items-center gap-4 mt-4">
                     <Link
                         href={"/job/" + job.slug}
-                        className="px-6 py-2 text-sm font-bold transition-all duration-300 rounded bg-primary-50 text-primary-500 hover:bg-primary-100"
+                        className="flex items-center gap-1 px-6 py-2 text-sm font-bold transition-all duration-300 rounded text-primary-500 bg-primary-50 hover:bg-primary-100"
                     >
-                        Apply Now
+                        Apply Now{" "}
                     </Link>
                 </div>
             </div>

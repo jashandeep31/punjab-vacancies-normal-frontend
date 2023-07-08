@@ -65,6 +65,22 @@ const Navbar = () => {
                     </li>
                 ) : null}
 
+                {userContextData?.userData?.role === "user" ? (
+                    <li>
+                        <Link
+                            href="/my-applications"
+                            className="flex items-center gap-2"
+                        >
+                            <ScrollText
+                                size={14}
+                                className="text-primary-500"
+                            />
+                            <span className="text-slate-500">
+                                My applications
+                            </span>
+                        </Link>{" "}
+                    </li>
+                ) : null}
                 {userContextData.userState !== "authenticated" ? (
                     <li>
                         <button
