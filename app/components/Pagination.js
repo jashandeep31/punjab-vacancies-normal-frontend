@@ -39,7 +39,7 @@ const Pagination = ({ searchParams, total }) => {
 
     return (
         <div className="pagination">
-            <div className="flex items-center gap-4 my-12">
+            <div className="flex items-center gap-4 mt-6">
                 <button
                     className="flex items-center px-4 py-2 text-sm rounded text-primary-600 disabled:text-slate-900 "
                     disabled={pageNumber > 1 ? false : true}

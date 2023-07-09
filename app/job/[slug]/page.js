@@ -18,7 +18,7 @@ async function getJob({ params }) {
 export async function generateMetadata({ params, searchParams }, parent) {
     const res = await fetch(BaseURL + "api/v1/job/" + params.slug, {
         next: {
-            revalidate: 10,
+            revalidate: 600,
         },
     });
     const { job } = await res.json();
@@ -128,9 +128,7 @@ export default async function JobPage(props) {
                     </div>
                 </div>
             </div>
-            <div className="mt-12">
-                <Footer />
-            </div>
+            <Footer />
         </div>
     );
 }

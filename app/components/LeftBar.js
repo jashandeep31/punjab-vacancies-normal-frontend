@@ -3,8 +3,8 @@ import Link from "next/link";
 
 const LeftBar = () => {
     return (
-        <div className="">
-            <div className="px-4 py-4 bg-white border rounded-md card ">
+        <div className="mt-12 md:mt-0">
+            <div className="px-4 py-4 bg-white border rounded-md card">
                 <h2 className="hidden text-sm font-medium md:text-base md:block md:font-bold">
                     Get Daily Alerts
                 </h2>
@@ -18,7 +18,7 @@ const LeftBar = () => {
                     <span>Join Now</span>
                 </Link>
             </div>
-            <div className="hidden px-4 py-4 mt-6 bg-white border rounded-md card md:block">
+            <div className="px-4 py-4 mt-6 bg-white border rounded-md card ">
                 <h2 className="text-base font-bold">Post a Job vacancy</h2>
                 <p className="mt-2 text-xs text-slate-500">
                     Post a job vacancy to get the best candidates in the market,
