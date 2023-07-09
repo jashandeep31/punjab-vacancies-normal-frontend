@@ -23,7 +23,7 @@ const Main = ({ district }) => {
             params: {
                 page: pageParam,
                 district: "bathinda",
-                limit: 2,
+                limit: 5,
             },
         });
         console.log("🚀 ~ file: Infinite.js:26 ~ getData ~ res:", res);
