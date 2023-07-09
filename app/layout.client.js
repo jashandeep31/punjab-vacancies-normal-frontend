@@ -5,8 +5,8 @@ import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 const LayoutClient = () => {
     return (
         <ProgressBar
-            height="2px"
-            color="#D74838"
+            height="4px"
+            color="#E85646"
             options={{ showSpinner: false }}
             shallowRouting
         />
