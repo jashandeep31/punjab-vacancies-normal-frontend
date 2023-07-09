@@ -1,6 +1,7 @@
 import UserState from "@/context/userState";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import LayoutClient from "./layout.client";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
                 ></script>
             </head>
             <body className={inter.className}>
+                <LayoutClient />
                 <UserState>{children}</UserState>
             </body>
         </html>
