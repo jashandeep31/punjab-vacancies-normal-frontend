@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Districts from "@/app/create/components/Districts";
+import Districts from "@/helpers/Districts";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";

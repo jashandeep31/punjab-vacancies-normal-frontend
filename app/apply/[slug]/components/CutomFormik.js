@@ -33,28 +33,21 @@ function CutomFormik(slug) {
             .required("About you is required")
             .min(10, "10 words atleast")
             .max(200, "100 words max"),
-        // address: yup
-        //     .string()
-        //     .required("Address you is required")
-        //     .min(10, "10 words atleast")
-        //     .max(200, "100 words max"),
+        address: yup
+            .string()
+            .required("Address you is required")
+            .min(10, "10 words atleast")
+            .max(200, "100 words max"),
     });
 
     const initialValues = {
-        // name: "",
-        // phoneNumber: "",
-        // education: "",
-        // age: "",
-        // experience: "",
-        // address: "",
-        // about: "",
-        name: "Jashandeeep",
-        phoneNumber: "9417340175",
-        education: "B.tech",
-        age: 20,
-        experience: "3 ",
-        address: "dsafd ds fsd fad f",
-        about: "dsafa fdsf dsfa s ",
+        name: "",
+        phoneNumber: "",
+        education: "",
+        age: "",
+        experience: "",
+        address: "",
+        about: "",
     };
 
     const formik = useFormik({

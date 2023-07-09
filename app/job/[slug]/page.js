@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import LeftBar from "@/app/components/LeftBar";
 import CustomError from "@/app/404";
 import ApplyButtons from "./components/ApplyButtons";
+import Infinite from "./components/Infinite";
 async function getJob({ params }) {
     const res = await fetch(BaseURL + "api/v1/job/" + params.slug, {
         next: {
@@ -122,6 +123,7 @@ export default async function JobPage(props) {
                             <p className="text-sm">{jobData.description}</p>
                         </div>
                         <ApplyButtons jobData={jobData} />
+                        <Infinite district={jobData.district.name} />
                     </div>
                     <div className="hidden md:block">
                         <LeftBar />
