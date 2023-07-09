@@ -199,7 +199,7 @@ const Navbar = () => {
                 </div>
             </div>
             <div
-                className={`fixed top-0 w-full h-full px-4 py-4 mt-16 bg-white border-b md:hidden ${
+                className={`fixed top-0 z-10 w-full h-full px-4 py-4 mt-16 bg-white border-b md:hidden ${
                     navbarStatus ? "block" : "hidden"
                 } `}
             >
