@@ -6,6 +6,7 @@ import ProtectedRoutes from "@/helpers/protectedRoutes";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
+import Footer from "@/components/Footer";
 const MyJobs = () => {
     const [jobs, setjobs] = useState([]);
 
@@ -87,6 +88,7 @@ const MyJobs = () => {
                         ))}
                     </div>
                 </div>
+                <Footer />
             </div>
         </ProtectedRoutes>
     );

@@ -6,6 +6,7 @@ import React from "react";
 import CustomFormik from "./components/CustomFormik";
 import Districts from "./components/Districts";
 import Buttons from "./components/Buttons";
+import Footer from "@/components/Footer";
 export default function Create() {
     const Main = () => {
         const formik = CustomFormik();
@@ -13,7 +14,7 @@ export default function Create() {
             <div>
                 <Navbar />
 
-                <div className="container mx-auto mt-6 mb-24 md:mt-12">
+                <div className="container mx-auto mt-6 md:mt-12">
                     <h1 className="text-lg font-medium md:text-xl">
                         Create Job Post
                     </h1>
@@ -324,6 +325,7 @@ export default function Create() {
                         </div>
                     </form>
                 </div>
+                <Footer />
             </div>
         );
     };

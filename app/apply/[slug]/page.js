@@ -4,6 +4,7 @@ import ProtectedRoutes from "@/helpers/protectedRoutes";
 import React from "react";
 import { BaseURL } from "@/helpers/axiosInstance";
 import MainForm from "./components/MainForm";
+import Footer from "@/components/Footer";
 
 async function getJob({ params }) {
     const res = await fetch(BaseURL + "api/v1/job/" + params.slug, {
@@ -39,6 +40,7 @@ export default async function ApplyPage(props) {
             <div>
                 <Navbar />
                 <MainForm jobData={jobData} />
+                <Footer />
             </div>
         </ProtectedRoutes>
     );
