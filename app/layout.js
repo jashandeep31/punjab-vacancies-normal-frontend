@@ -6,7 +6,7 @@ import LayoutClient from "./layout.client";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-    title: "Punjab jobs update - punjabvacancies",
+    title: "Lastest Job in Punjab - punjabvacancies",
     description:
         "Find the latest job vacancies in Punjab on PunjabVacancies.live. We provide up-to-date listings for government and private sector jobs across various industries. Discover your dream career in Punjab today",
     keywords:

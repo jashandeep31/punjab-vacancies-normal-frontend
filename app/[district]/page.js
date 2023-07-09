@@ -8,13 +8,22 @@ import Footer from "@/components/Footer";
 import { BaseURL } from "@/helpers/axiosInstance";
 import DistrictFilter from "@/components/DistrictFilter";
 
-export const metadata = {
-    title: "Punjab jobs update - punjabvacancies",
-    description:
-        "Find the latest job vacancies in Punjab on PunjabVacancies.live. We provide up-to-date listings for government and private sector jobs across various industries. Discover your dream career in Punjab today",
-    keywords:
-        "job pvacancies, Punjab, government jobs, private sector jobs, Punjab job opportunities, job openings, careers, employment, job search, job listings, Punjab jobs, job portal, job board, latest vacancies, job alerts, job notifications",
-};
+export async function generateMetadata({ params, searchParams }) {
+    const { district } = params;
+
+    const fetchURL = BaseURL + "api/v1/job/all" + "?district=" + district;
+
+    const res = await fetch(fetchURL, { revalidate: 600 });
+    const { data } = await res.json();
+    const { jobs } = data;
+    if (jobs.length > 0) {
+        return {
+            title: `${jobs.length} active jobs  and vacancies in ${jobs[0].district.name} - Punjabvacancies`,
+            description: `${jobs.length} active jobs  and vacancies in ${jobs[0].district.name} apply for the job you need - Punjabvacancies`,
+            keywords: `${jobs.length} job in ${jobs[0].district.name} , latest jobs, govt jobs in ${jobs[0].district.name}  , private jobs in ${jobs[0].district.name} , job near me , ${jobs[0].district.name} , ${jobs[0].district.name} jobs , ${jobs[0].district.name} govt jobs , ${jobs[0].district.name} private jobs`,
+        };
+    }
+}
 
 async function getJobs(searchParams, district) {
     const res = await fetch(
