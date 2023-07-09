@@ -15,7 +15,7 @@ async function getJob({ params }) {
     const data = await res.json();
     return data.job;
 }
-export async function generateMetadata({ params, searchParams }, parent) {
+export async function generateMetadata({ params, searchParams }) {
     const res = await fetch(BaseURL + "api/v1/job/" + params.slug, {
         next: {
             revalidate: 600,
