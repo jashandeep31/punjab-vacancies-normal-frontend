@@ -5,6 +5,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import * as yup from "yup";
 import { BaseURL } from "@/helpers/axiosInstance";
+import toast from "react-hot-toast";
 
 const createForm = yup.object({
     title: yup.string().required("Title is required").trim(),
@@ -40,37 +41,56 @@ function CustomFormik() {
     const router = useRouter();
 
     const initialValues = {
-        title: "",
-        organization: "",
-        salary: "",
-        jobSector: "",
-        jobType: "",
-        experience: "",
-        description: "",
-        interviewDetails: "",
-        education: "",
-        deadline: "",
+        // title: "",
+        // organization: "",
+        // salary: "",
+        // jobSector: "",
+        // jobType: "",
+        // experience: "",
+        // description: "",
+        // interviewDetails: "",
+        // education: "",
+        // deadline: "",
+        // applyNowLink: "",
+        // district: "",
+        title: "Software Engineer",
+        organization: "Acme Corporation",
+        salary: "$100,000 per year",
+        jobSector: "private",
+        jobType: "Full-time",
+        experience: "3-5 years",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        interviewDetails: "Virtual interviews will be conducted.",
+        education: "Bachelor's degree in Computer Science",
+        deadline: "2023-07-31",
         applyNowLink: "",
-        district: "",
+        district: "bathinda",
         inbuiltForm: false,
     };
     const formik = useFormik({
         initialValues,
         validationSchema: createForm,
         onSubmit: (values) => {
-            axios
-                .post(BaseURL + "api/v1/job/create", values, {
-                    withCredentials: true,
-                })
-                .then((res) => {
-                    if (res.status === 201) {
-                        router.push("/job/" + res.data.job.slug);
-                    }
-                    formik.setSubmitting(false);
-                })
-                .catch((err) => {
-                    formik.setSubmitting(false);
-                });
+            toast.promise(
+                axios
+                    .post(BaseURL + "api/v1/job/create", values, {
+                        withCredentials: true,
+                    })
+                    .then((res) => {
+                        if (res.status === 201) {
+                            router.push("/job/" + res.data.job.slug);
+                        }
+                    })
+                    .catch((err) => {
+                        formik.setSubmitting(false);
+                        throw new Error(err.response.data.message);
+                    }),
+                {
+                    loading: "Creating job...",
+                    success: <b>Job created successfully</b>,
+                    error: (error) => <b>{error.message}</b>,
+                }
+            );
         },
     });
     return formik;

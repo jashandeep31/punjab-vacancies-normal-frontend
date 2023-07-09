@@ -2,6 +2,7 @@ import UserState from "@/context/userState";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import LayoutClient from "./layout.client";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
             </head>
             <body className={inter.className}>
                 <LayoutClient />
+                <Toaster />
                 <UserState>{children}</UserState>
             </body>
         </html>

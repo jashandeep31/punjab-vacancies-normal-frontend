@@ -12,13 +12,17 @@ const MyJobs = () => {
 
     useEffect(() => {
         axios
-            .get(BaseURL + "api/v1/job/manager-jobs", { withCredentials: true })
+            .get(BaseURL + "api/v1/job/manager-jobs", {
+                withCredentials: true,
+            })
             .then((res) => {
                 if (res.status === 200) {
                     setjobs(res.data.jobs);
                 }
             })
-            .catch((err) => {});
+            .catch((err) => {
+                throw new Error("Something went wrong");
+            });
 
         return () => {};
     }, []);

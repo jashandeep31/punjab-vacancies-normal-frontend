@@ -1,7 +1,7 @@
 "use client";
 import React, { useContext } from "react";
 import CutomFormik from "./CutomFormik";
-
+import { Loader2 } from "lucide-react";
 const MainForm = ({ jobData }) => {
     const formik = CutomFormik(jobData.slug);
 
@@ -156,7 +156,21 @@ const MainForm = ({ jobData }) => {
                         disabled={formik.isSubmitting}
                         className="px-4 py-2 text-sm font-bold duration-300 rounded bg-primary-50 text-primary-500 hover:bg-primary-100"
                     >
-                        Submit Now
+                        {formik.isSubmitting ? (
+                            <span className="flex gap-1 item-center">
+                                <svg
+                                    className="w-5 h-5 mr-3 text-white animate-spin"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <Loader2 />
+                                </svg>
+                                Applying
+                            </span>
+                        ) : (
+                            <span className="flex gap-1 item-center">
+                                Apply
+                            </span>
+                        )}
                     </button>
                 </div>
             </form>

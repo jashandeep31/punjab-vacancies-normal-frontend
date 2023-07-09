@@ -1,37 +1,57 @@
 import { BaseURL } from "@/helpers/axiosInstance";
 import React, { useState } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
+
 const ApplicationCard = ({ data, filter }) => {
     const [status, setstatus] = useState(data.status);
 
     const statusShortlist = () => {
-        axios
-            .post(
-                BaseURL + "api/v1/application/update/" + data._id,
-                {
-                    status: "shortlisted",
-                },
-                { withCredentials: true }
-            )
-            .then((res) => {
-                setstatus(res.data.application.status);
-            })
-            .catch((err) => {});
+        toast.promise(
+            axios
+                .post(
+                    BaseURL + "api/v1/application/update/" + data._id,
+                    {
+                        status: "shortlisted",
+                    },
+                    { withCredentials: true }
+                )
+                .then((res) => {
+                    setstatus(res.data.application.status);
+                })
+                .catch((err) => {
+                    throw new Error(err.response.data.message);
+                }),
+            {
+                loading: "Shortlisting...",
+                success: "Shortlisted successfully",
+                error: (error) => <b>{error.message}</b>,
+            }
+        );
     };
 
     const statusArchive = () => {
-        axios
-            .post(
-                BaseURL + "api/v1/application/update/" + data._id,
-                {
-                    status: "archived",
-                },
-                { withCredentials: true }
-            )
-            .then((res) => {
-                setstatus(res.data.application.status);
-            })
-            .catch((err) => {});
+        toast.promise(
+            axios
+                .post(
+                    BaseURL + "api/v1/application/update/" + data._id,
+                    {
+                        status: "archived",
+                    },
+                    { withCredentials: true }
+                )
+                .then((res) => {
+                    setstatus(res.data.application.status);
+                })
+                .catch((err) => {
+                    throw new Error(err.response.data.message);
+                }),
+            {
+                loading: "Archiving...",
+                success: "Archived successfully",
+                error: (error) => <b>{error.message}</b>,
+            }
+        );
     };
 
     if (filter !== "all" && filter !== status) return null;

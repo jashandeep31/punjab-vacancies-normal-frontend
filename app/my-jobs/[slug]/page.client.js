@@ -4,7 +4,6 @@ import { BaseURL } from "@/helpers/axiosInstance";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ApplicationCard from "./components/ApplicationCard";
-
 const PageCient = ({ slug }) => {
     const [Applications, setApplications] = useState([]);
     const [filter, setfilter] = useState("all");
