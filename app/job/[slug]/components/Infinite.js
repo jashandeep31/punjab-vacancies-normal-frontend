@@ -28,7 +28,11 @@ const Main = ({ district }) => {
         });
         console.log("🚀 ~ file: Infinite.js:26 ~ getData ~ res:", res);
         const { jobs } = res.data.data;
-        if (jobs.length === 0) {
+
+        if (
+            jobs.length === 0 ||
+            5 * pageParam + jobs.length < 5 * pageParam + 5
+        ) {
             setisMore(false);
         } else {
             setisMore(true);
@@ -47,15 +51,11 @@ const Main = ({ district }) => {
         }
     );
 
-    const JobRender = ({ jobs }) => {
-        return jobs.map((job) => <JobCard job={job} key={job._id} />);
-    };
-
     return (
         <div className="mt-12">
-            {data?.pages?.map((page, index) => (
-                <JobRender jobs={page} key={index} />
-            ))}
+            {data?.pages?.map((page, index) =>
+                page.map((job) => <JobCard job={job} key={job._id} />)
+            )}
             <div className="flex justify-center mt-6">
                 {isMore ? (
                     <button
