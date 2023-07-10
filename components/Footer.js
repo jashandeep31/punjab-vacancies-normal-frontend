@@ -96,6 +96,14 @@ const Footer = () => {
                                         Terms and conditions
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link
+                                        className="duration-300 hover:underline"
+                                        href="/privacy-policy"
+                                    >
+                                        Privacy Policy
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
                     </div>
