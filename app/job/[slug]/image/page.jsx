@@ -41,87 +41,107 @@ const JobImage = (props) => {
     }, [jobLoaded]);
 
     if (!jobLoaded) {
-        return <div>Loading..</div>;
+        return (
+            <div>
+                <Navbar />
+                <div className="container flex justify-center py-4 mx-auto">
+                    <div className="">
+                        <h1 className="block w-full my-48 text-2xl font-bold text-center text-slate-500">
+                            Getting Image Data
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        );
     }
     return (
         <div className="w-full ">
             <Navbar />
             <div className="container flex justify-center py-4 mx-auto">
                 {!canvasStatus ? (
-                    <div className="opacity-100">
-                        <div className="flex justify-between " id="banner">
-                            <div className="flex flex-col  w-[1280px] h-[1280px] border lightBg">
-                                <div className="px-8 pt-8 header">
-                                    <h1 className="text-[100px] font-black">
-                                        We are hiring
-                                    </h1>
-                                    <ul className="mt-12 text-[42px]">
-                                        <li>
-                                            <span className="mr-6 font-medium">
-                                                Profile:
-                                            </span>
-                                            {job.title}
-                                        </li>
-                                        <li>
-                                            <span className="mr-6 font-medium">
-                                                organization:
-                                            </span>
+                    <div className="block">
+                        <div className="">
+                            <h1 className="block w-full my-48 text-2xl font-bold text-center text-slate-500">
+                                Rendering Image
+                            </h1>
+                        </div>
+                        <div className="opacity-0">
+                            <div className="flex justify-between " id="banner">
+                                <div className="flex flex-col  w-[1280px] h-[1280px] border lightBg">
+                                    <div className="px-8 pt-8 header">
+                                        <h1 className="text-[100px] font-black">
+                                            We are hiring
+                                        </h1>
+                                        <ul className="mt-12 text-[42px]">
+                                            <li>
+                                                <span className="mr-6 font-medium">
+                                                    Profile:
+                                                </span>
+                                                {job.title}
+                                            </li>
+                                            <li>
+                                                <span className="mr-6 font-medium">
+                                                    organization:
+                                                </span>
 
-                                            {job.organization}
-                                        </li>
-                                        <li>
-                                            <span className="mr-6 font-medium">
-                                                District:
-                                            </span>
+                                                {job.organization}
+                                            </li>
+                                            <li>
+                                                <span className="mr-6 font-medium">
+                                                    District:
+                                                </span>
 
-                                            {job.district.name}
-                                        </li>
-                                        <li>
-                                            <span className="mr-6 font-medium">
-                                                Salary:
-                                            </span>
+                                                {job.district.name}
+                                            </li>
+                                            <li>
+                                                <span className="mr-6 font-medium">
+                                                    Salary:
+                                                </span>
 
-                                            {job.salary}
-                                        </li>
-                                        <li>
-                                            <span className="mr-6 font-medium">
-                                                Job type:
+                                                {job.salary}
+                                            </li>
+                                            <li>
+                                                <span className="mr-6 font-medium">
+                                                    Job type:
+                                                </span>
+                                                {job.jobType}
+                                            </li>
+                                            <li>
+                                                <span className="mr-6 font-medium">
+                                                    Experience:
+                                                </span>
+                                                {job.experience}
+                                            </li>
+                                            <li>
+                                                <span className="mr-6 font-medium">
+                                                    Education:
+                                                </span>
+                                                {job.education}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div className="flex items-center justify-center h-full gap-12 mx-8">
+                                        <QRCode
+                                            style={{
+                                                height: "100%",
+                                            }}
+                                            bgColor="#9caaff"
+                                            value={
+                                                "https://punjabvacancies.live/job/" +
+                                                job.slug
+                                            }
+                                        />
+                                    </div>
+                                    <div className="px-16 pb-8 text-4xl footer">
+                                        <p className="flex justify-between font-medium ">
+                                            <span>
+                                                Website: punjabvacancies.live
                                             </span>
-                                            {job.jobType}
-                                        </li>
-                                        <li>
-                                            <span className="mr-6 font-medium">
-                                                Experience:
+                                            <span>
+                                                Instagram: @punjabvacancies
                                             </span>
-                                            {job.experience}
-                                        </li>
-                                        <li>
-                                            <span className="mr-6 font-medium">
-                                                Education:
-                                            </span>
-                                            {job.education}
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div className="flex items-center justify-center h-full gap-12 mx-8">
-                                    <QRCode
-                                        style={{
-                                            height: "100%",
-                                        }}
-                                        bgColor="#9caaff"
-                                        value={
-                                            "https://punjabvacancies.live/job/" +
-                                            job.slug
-                                        }
-                                    />
-                                </div>
-                                <div className="px-16 pb-8 text-4xl footer">
-                                    <p className="flex justify-between font-medium ">
-                                        <span>
-                                            Website: punjabvacancies.live
-                                        </span>
-                                        <span>Instagram: @punjabvacancies</span>
-                                    </p>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -14,7 +14,8 @@ const queryClient = new QueryClient();
 const Main = ({ district }) => {
     const [isMore, setisMore] = useState(true);
 
-    const getData = async ({ pageParam = 1 }) => {
+    const getData = async ({ pageParam = 1, district }) => {
+        console.log(district);
         console.log(
             "🚀 ~ file: Infinite.js:15 ~ getData ~ pageParam:",
             pageParam
@@ -22,7 +23,7 @@ const Main = ({ district }) => {
         const res = await axios.get(BaseURL + "api/v1/job/all", {
             params: {
                 page: pageParam,
-                district: "bathinda",
+                district: district,
                 limit: 5,
             },
         });
@@ -42,7 +43,7 @@ const Main = ({ district }) => {
 
     const { data, fetchNextPage, isFetchingNextPage } = useInfiniteQuery(
         ["jobs"],
-        ({ pageParam = 1 }) => getData({ pageParam }),
+        ({ pageParam = 1 }) => getData({ pageParam, district }),
         {
             getNextPageParam: (_, pages) => {
                 return pages.length + 1;

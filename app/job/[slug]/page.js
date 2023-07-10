@@ -123,7 +123,7 @@ export default async function JobPage(props) {
                             <p className="text-sm">{jobData.description}</p>
                         </div>
                         <ApplyButtons jobData={jobData} />
-                        <Infinite district={jobData.district.name} />
+                        <Infinite district={jobData.district.slug} />
                     </div>
                     <div className="hidden md:block">
                         <LeftBar />
