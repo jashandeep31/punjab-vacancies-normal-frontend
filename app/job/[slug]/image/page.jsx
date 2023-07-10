@@ -3,14 +3,16 @@ import { BaseURL } from "@/helpers/axiosInstance";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import html2canvas from "html2canvas";
-import { ArrowBigDownDash, Link } from "lucide-react";
+import { ArrowBigDownDash, Copy, Link } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import QRCode from "react-qr-code";
+import toast from "react-hot-toast";
 const JobImage = (props) => {
     const [job, setjob] = useState();
     const [ImageLink, setImageLink] = useState("");
     const [canvasStatus, setcanvasStatus] = useState(false);
     const [jobLoaded, setjobLoaded] = useState(false);
+    const [caption, setcaption] = useState("");
 
     useEffect(() => {
         axios
@@ -30,6 +32,9 @@ const JobImage = (props) => {
             const dataUrl = canvas.toDataURL();
             setcanvasStatus(true);
             setImageLink(dataUrl);
+            setcaption(
+                `${job.organization} is hiring for ${job.title} for more information visit our website: www.punjabvacancies.live. #punjabvacancies #jobupdate #punjabjobs #punjab #job #jobalert @punjabvacancies`
+            );
         });
     };
 
@@ -154,15 +159,39 @@ const JobImage = (props) => {
                     />
                 )}
             </div>
-            <div className="container flex items-center justify-center mx-auto">
-                <a
-                    className="flex items-center gap-2 px-4 py-2 duration-300 border rounded hover:bg-slate-100"
-                    href={ImageLink}
-                    download={job.title + ".png"}
-                >
-                    <ArrowBigDownDash className="h-6" />
-                    Download Banner
-                </a>
+            <div className="container flex flex-col items-center justify-center mx-auto">
+                <div className="flex gap-6">
+                    <a
+                        className="flex items-center gap-2 px-4 py-2 duration-300 border rounded hover:bg-slate-100"
+                        href={ImageLink}
+                        download={job.title + ".png"}
+                    >
+                        <ArrowBigDownDash className="h-6" />
+                        Download Banner
+                    </a>
+
+                    <button
+                        className="flex items-center gap-2 px-4 py-2 duration-300 border rounded hover:bg-slate-100"
+                        type="button"
+                        onClick={() => {
+                            try {
+                                navigator.clipboard.writeText(caption);
+                                toast.success("Copied to clipboard");
+                            } catch (e) {
+                                toast.error("Failed to copy");
+                            }
+                        }}
+                    >
+                        <Copy className="h-4" />
+                        Copy Caption
+                    </button>
+                </div>
+
+                <div className="grid justify-center w-full md:w-1/2 ">
+                    <p className="p-2 mt-6 text-sm border rounded text-slate-500">
+                        {caption}
+                    </p>
+                </div>
             </div>
         </div>
     );
