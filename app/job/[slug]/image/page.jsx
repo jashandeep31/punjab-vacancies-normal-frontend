@@ -130,7 +130,7 @@ const JobImage = (props) => {
                                             style={{
                                                 height: "100%",
                                             }}
-                                            bgColor="#9caaff"
+                                            bgColor="#f1ede4"
                                             value={
                                                 "https://punjabvacancies.live/job/" +
                                                 job.slug
