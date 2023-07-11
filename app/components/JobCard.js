@@ -6,6 +6,15 @@ const JobCard = ({ job }) => {
     function createMarkup(c) {
         return { __html: c };
     }
+
+    const RenderDescription = (text, limit) => {
+        const words = text.split(" ");
+        const truncated = words.slice(0, limit).join(" ");
+        return truncated + (words.length > limit ? "..." : "");
+    };
+
+    const truncatedDescription = RenderDescription(job.description, 50);
+
     return (
         <div className="block p-4 mt-4 bg-white border rounded shadow md:mt-6">
             <div className="flex items-center w-full gap-4">
@@ -68,10 +77,13 @@ const JobCard = ({ job }) => {
                     </li>
                 </ul>
 
-                <div
+                {/* <div
                     dangerouslySetInnerHTML={createMarkup(job.description)}
                     className="mt-4 text-xs text-slate-500"
-                ></div>
+                ></div> */}
+                <div className="mt-4 text-xs text-slate-500">
+                    {truncatedDescription}
+                </div>
 
                 <div className="flex items-center gap-4 mt-4">
                     <Link
