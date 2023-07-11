@@ -33,7 +33,7 @@ const JobImage = (props) => {
             setcanvasStatus(true);
             setImageLink(dataUrl);
             setcaption(
-                `${job.organization} is hiring for ${job.title} for more information visit our website: www.punjabvacancies.live. #punjabvacancies #jobupdate #punjabjobs #punjab #job #jobalert @punjabvacancies`
+                `${job.organization} is hiring for ${job.title} in $job.district.name} for more information visit our website: www.punjabvacancies.live. #punjabvacancies #jobupdate #punjabjobs #punjab #job #jobalert @punjabvacancies #${job.district.name} #${job.district.name}jobs}`
             );
         });
     };
@@ -75,7 +75,7 @@ const JobImage = (props) => {
                                 <div className="flex flex-col  w-[1280px] h-[1280px] border lightBg">
                                     <div className="px-8 pt-8 header">
                                         <h1 className="text-[100px] font-black">
-                                            We are hiring
+                                            Job Alert
                                         </h1>
                                         <ul className="mt-12 text-[42px]">
                                             <li>
