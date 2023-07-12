@@ -13,6 +13,7 @@ const JobImage = (props) => {
     const [canvasStatus, setcanvasStatus] = useState(false);
     const [jobLoaded, setjobLoaded] = useState(false);
     const [caption, setcaption] = useState("");
+    const [twitterCaption, settwitterCaption] = useState("");
 
     useEffect(() => {
         axios
@@ -35,6 +36,20 @@ const JobImage = (props) => {
             setcaption(
                 `${job.organization} is hiring for ${job.title} in ${job.district.name} for more information visit our website: www.punjabvacancies.live. #punjabvacancies #jobupdate #punjabjobs #punjab #job #jobalert @punjabvacancies #${job.district.name} #${job.district.name}jobs`
             );
+            settwitterCaption(`Job Alert in ${job.district.name} Punjab 👇
+
+✨ Profile: ${job.title} 
+🏢 Organization: ${job.organization} 
+🌆 District: ${job.district.name} 
+💰 Salary: ${job.salary} 
+👔 Experience: ${job.experience} 
+🎓 Education: ${job.education} 
+⌛️ Deadline: ${new Date(job.deadline).toDateString()} 
+
+📝 Apply Now: https://punjabvacancies.live/job/${job.slug}
+Good luck! 🍀👍
+
+#jobalert #punjabjobalert #jobin${job.district.name} #${job.district.name}`);
         });
     };
 
@@ -160,7 +175,7 @@ const JobImage = (props) => {
                 )}
             </div>
             <div className="container flex flex-col items-center justify-center mx-auto">
-                <div className="flex gap-6">
+                <div className="flex flex-col gap-6 md:flex-row">
                     <a
                         className="flex items-center gap-2 px-4 py-2 duration-300 border rounded hover:bg-slate-100"
                         href={ImageLink}
@@ -184,6 +199,21 @@ const JobImage = (props) => {
                     >
                         <Copy className="h-4" />
                         Copy Caption
+                    </button>
+                    <button
+                        className="flex items-center gap-2 px-4 py-2 duration-300 border rounded hover:bg-slate-100"
+                        type="button"
+                        onClick={() => {
+                            try {
+                                navigator.clipboard.writeText(twitterCaption);
+                                toast.success("Copied to clipboard");
+                            } catch (e) {
+                                toast.error("Failed to copy");
+                            }
+                        }}
+                    >
+                        <Copy className="h-4" />
+                        Copy Tweet
                     </button>
                 </div>
 
