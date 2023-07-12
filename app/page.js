@@ -9,11 +9,11 @@ import { BaseURL } from "@/helpers/axiosInstance";
 import DistrictFilter from "@/components/DistrictFilter";
 
 export const metadata = {
-    title: "Lastest Job in Punjab - punjabvacancies",
+    title: "Latest Jobs in Punjab - punjabvacancies",
     description:
         "Find the latest job vacancies in Punjab on PunjabVacancies.live. We provide up-to-date listings for government and private sector jobs across various industries. Discover your dream career in Punjab today",
     keywords:
-        "job pvacancies, Punjab, government jobs, private sector jobs, Punjab job opportunities, job openings, careers, employment, job search, job listings, Punjab jobs, job portal, job board, latest vacancies, job alerts, job notifications",
+        "job alert punjab  , Punjab, government jobs, private sector jobs, Punjab job opportunities, job openings, careers, employment, job search, job listings, Punjab jobs, job portal, job board, latest vacancies, job alerts, job notifications , ",
 };
 
 async function getJobs(searchParams) {
