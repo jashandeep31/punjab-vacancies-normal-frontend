@@ -22,7 +22,7 @@ export async function generateMetadata({ params, searchParams }) {
     const { data } = await res.json();
     const jobs = data.jobs.metadata[0];
     return {
-        title: `${jobs.total} active job vacancies in ${jobs.district.name} - Punjabvacancies`,
+        title: `${jobs.total} latest jobs in ${jobs.district.name} - Punjabvacancies`,
         description: `Latest ${jobs.total} jobs in ${jobs.district.name} Govt and private both - Punjabvacancies`,
         keywords: `${jobs.total} jobs in ${jobs.district.name} , latest jobs, govt jobs in ${jobs.district.name}  , private jobs in ${jobs.district.name} , jobs near me , ${jobs.district.name} , ${jobs.district.name} jobs , ${jobs.district.name} govt jobs , ${jobs.district.name} private jobs`,
     };
