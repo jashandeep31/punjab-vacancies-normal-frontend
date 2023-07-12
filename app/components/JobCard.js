@@ -22,7 +22,7 @@ const JobCard = ({ job }) => {
                     className={`flex items-center justify-center w-12 h-12 rounded-full text-primary-500 bg-primary-50`}
                 >
                     <span className="text-xl font-bold uppercase">
-                        {job.organization[0]}
+                        {job.organization.trim().charAt(0)}
                     </span>
                 </span>
                 <div>
