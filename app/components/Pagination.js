@@ -3,23 +3,20 @@ import React, { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-const Pagination = ({ searchParams, total }) => {
-    const [pageNumber, setpageNumber] = useState(
-        searchParams.page ? Number(searchParams.page) : 1
-    );
+const Pagination = ({ searchParams, metadata }) => {
+    const data = metadata[0];
+    const total = 5;
+    const [pageNumber, setpageNumber] = useState(data.page);
 
     const router = useRouter();
 
-    const [nextStatus, setnextStatus] = useState(
-        total > 10 * pageNumber ? true : false
-    );
+    const [nextStatus, setnextStatus] = useState(data.isNext);
 
     useEffect(() => {
-        setpageNumber(searchParams.page ? Number(searchParams.page) : 1);
-        const tempPage = searchParams.page ? Number(searchParams.page) : 1;
-        setnextStatus(total > 10 * tempPage ? true : false);
+        setpageNumber(data.page);
+        setnextStatus(data.isNext);
         return () => {};
-    }, [searchParams]);
+    }, [searchParams, data]);
 
     const prevPage = () => {
         if (pageNumber > 1) {

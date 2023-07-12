@@ -48,14 +48,14 @@ export default async function Home(props) {
 
                         <DistrictFilter />
                         <div className="cards">
-                            {jobsData.jobs.map((item, index) => (
+                            {jobsData.jobs.data.map((item, index) => (
                                 <JobCard key={index} job={item} />
                             ))}
                         </div>
                         <div className="">
                             <Pagination
                                 searchParams={searchParams}
-                                total={jobsData.total}
+                                metadata={jobsData.jobs.metadata}
                             />
                         </div>
                     </div>
