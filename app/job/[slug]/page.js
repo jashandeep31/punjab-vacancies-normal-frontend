@@ -74,7 +74,7 @@ export default async function JobPage(props) {
         },
     };
     return (
-        <div>
+        <div>   
             {jobData.activeGoogleCard ? (
                 <script
                     type="application/ld+json"
