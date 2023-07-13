@@ -94,7 +94,8 @@ const Navbar = () => {
                     </li>
                 ) : null}
 
-                {userContextData?.userData?.role === "manager" ? (
+                {userContextData?.userData?.role === "manager" ||
+                userContextData?.userData?.role === "admin" ? (
                     <li>
                         <Link
                             href="/create"
