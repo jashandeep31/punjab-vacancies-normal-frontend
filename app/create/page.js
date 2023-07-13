@@ -7,6 +7,7 @@ import CustomFormik from "./components/CustomFormik";
 import Districts from "./components/Districts";
 import Buttons from "./components/Buttons";
 import Footer from "@/components/Footer";
+import Advanceform from "./components/Advanceform";
 export default function Create() {
     const Main = () => {
         const formik = CustomFormik();
@@ -300,6 +301,7 @@ export default function Create() {
                                 <Buttons formik={formik} />
                             </div>
                         </div>
+                        <Advanceform formik={formik} />
                         <div className="mt-6">
                             <button
                                 className="px-4 py-2 text-sm font-medium text-white rounded bg-primary-500 disabled:bg-primary-400 "

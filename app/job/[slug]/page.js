@@ -7,6 +7,8 @@ import LeftBar from "@/app/components/LeftBar";
 import CustomError from "@/app/404";
 import ApplyButtons from "./components/ApplyButtons";
 import Infinite from "./components/Infinite";
+import Script from "next/script";
+
 async function getJob({ params }) {
     const res = await fetch(BaseURL + "api/v1/job/" + params.slug, {
         next: {
@@ -30,14 +32,55 @@ export async function generateMetadata({ params, searchParams }) {
         };
     }
 }
+
 export default async function JobPage(props) {
     const jobData = await getJob(props);
     if (jobData === null) {
         return <CustomError />;
     }
 
+    const jsonLd = jobData.activeGoogleCard && {
+        "@context": "https://punjabvacancies.live",
+        "@type": "JobPosting",
+        title: jobData.title,
+        description: jobData.description,
+        identifier: {
+            "@type": "PropertyValue",
+            name: jobData.gorganization.name,
+            value: jobData.gorganization.name,
+        },
+        datePosted: jobData.createdAt,
+        validThrough: jobData.deadline,
+        applicantLocationRequirements: {
+            "@type": "Country",
+            name: jobData.jobLocation.address.addressCountry,
+        },
+        jobLocationType: "TELECOMMUTE",
+        employmentType: "FULL_TIME",
+        hiringOrganization: {
+            "@type": "Organization",
+            name: "Google",
+            sameAs: "https://www.google.com",
+            logo: "https://www.example.com/images/logo.png",
+        },
+        baseSalary: {
+            "@type": "MonetaryAmount",
+            currency: "INR",
+            value: {
+                "@type": "QuantitativeValue",
+                value: jobData.baseSalary.value.value,
+                unitText: "MONTH",
+            },
+        },
+    };
     return (
         <div>
+            {jobData.activeGoogleCard ? (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                />
+            ) : null}
             <Navbar />
             <div className="container mx-auto mt-12">
                 <div className="grid gap-6 md:grid-cols-4">
