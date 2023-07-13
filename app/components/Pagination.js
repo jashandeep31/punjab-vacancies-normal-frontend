@@ -1,15 +1,18 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const Pagination = ({ searchParams, metadata }) => {
     const data = metadata[0];
     const total = 5;
     const [pageNumber, setpageNumber] = useState(data.page);
-
+    const pathname = usePathname();
+    console.log(
+        "🚀 ~ file: Pagination.js:11 ~ Pagination ~ pathname:",
+        pathname
+    );
     const router = useRouter();
-
     const [nextStatus, setnextStatus] = useState(data.isNext);
 
     useEffect(() => {
@@ -22,7 +25,11 @@ const Pagination = ({ searchParams, metadata }) => {
         if (pageNumber > 1) {
             const queryParams = new URLSearchParams();
             queryParams.set("page", pageNumber - 1);
-            router.push(`/?${queryParams.toString()}`);
+            router.push(
+                `${
+                    pathname === "/" ? "/" : pathname.replace("/", "") + "/"
+                }?${queryParams.toString()}`
+            );
         }
     };
 
@@ -30,7 +37,11 @@ const Pagination = ({ searchParams, metadata }) => {
         if (nextStatus) {
             const queryParams = new URLSearchParams();
             queryParams.set("page", searchParams.page ? pageNumber + 1 : 2);
-            router.push(`/?${queryParams.toString()}`);
+            router.push(
+                `${
+                    pathname === "/" ? "/" : pathname.replace("/", "") + "/"
+                }?${queryParams.toString()}`
+            );
         }
     };
 

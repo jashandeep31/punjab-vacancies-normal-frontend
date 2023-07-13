@@ -1,14 +1,12 @@
 import React from "react";
 import { Book, Briefcase, Clock, Factory, MapPin, Zap } from "lucide-react";
 import Link from "next/link";
+import striptags from "striptags";
 
 const JobCard = ({ job }) => {
-    function createMarkup(c) {
-        return { __html: c };
-    }
-
     const RenderDescription = (text, limit) => {
-        const words = text.split(" ");
+        const normalized = striptags(text);
+        const words = normalized.split(" ");
         const truncated = words.slice(0, limit).join(" ");
         return truncated + (words.length > limit ? "..." : "");
     };

@@ -2,12 +2,19 @@
 import Navbar from "@/components/Navbar";
 import ProtectedRoutes from "@/helpers/protectedRoutes";
 import { Loader2 } from "lucide-react";
-import React from "react";
+import React, { useMemo } from "react";
 import CustomFormik from "./components/CustomFormik";
 import Districts from "./components/Districts";
 import Buttons from "./components/Buttons";
 import Footer from "@/components/Footer";
+import Advanceform from "./components/Advanceform";
+import dynamic from "next/dynamic";
+import "react-quill/dist/quill.snow.css";
 export default function Create() {
+    const ReactQuill = useMemo(
+        () => dynamic(() => import("react-quill"), { ssr: false }),
+        []
+    );
     const Main = () => {
         const formik = CustomFormik();
         return (
@@ -262,13 +269,26 @@ export default function Create() {
                                 <label className="mb-2 text-sm font-medium text-slate-700">
                                     Interview Detail
                                 </label>
-                                <textarea
-                                    className="block w-full h-24 px-2 py-2 text-sm border rounded focus:outline-none "
-                                    name="interviewDetails"
-                                    placeholder="At DBEE office...."
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
+                                <ReactQuill
+                                    className="mt-2 "
+                                    theme="snow"
+                                    style={{
+                                        height: "200px",
+                                        marginBottom: "50px",
+                                    }}
                                     value={formik.values.interviewDetails}
+                                    onChange={(e) => {
+                                        formik.setFieldValue(
+                                            "interviewDetails",
+                                            e
+                                        );
+                                    }}
+                                    onBlur={(e) => {
+                                        formik.setFieldTouched(
+                                            "interviewDetails",
+                                            true
+                                        );
+                                    }}
                                 />
                                 {formik.errors.interviewDetails &&
                                 formik.touched.interviewDetails ? (
@@ -281,13 +301,23 @@ export default function Create() {
                                 <label className="mb-2 text-sm font-medium text-slate-700">
                                     Job Description
                                 </label>
-                                <textarea
-                                    className="block w-full h-24 px-2 py-2 text-sm border rounded focus:outline-none"
-                                    placeholder="Looking for someone who...."
-                                    name="description"
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
+                                <ReactQuill
+                                    className="mt-2 "
+                                    theme="snow"
+                                    style={{
+                                        height: "200px",
+                                        marginBottom: "50px",
+                                    }}
                                     value={formik.values.description}
+                                    onChange={(e) => {
+                                        formik.setFieldValue("description", e);
+                                    }}
+                                    onBlur={(e) => {
+                                        formik.setFieldTouched(
+                                            "description",
+                                            true
+                                        );
+                                    }}
                                 />
                                 {formik.errors.description &&
                                 formik.touched.description ? (
@@ -300,6 +330,7 @@ export default function Create() {
                                 <Buttons formik={formik} />
                             </div>
                         </div>
+                        <Advanceform formik={formik} />
                         <div className="mt-6">
                             <button
                                 className="px-4 py-2 text-sm font-medium text-white rounded bg-primary-500 disabled:bg-primary-400 "

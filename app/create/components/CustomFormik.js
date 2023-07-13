@@ -35,6 +35,20 @@ const createForm = yup.object({
         )
         .required("Deadline is required"),
     inbuiltForm: yup.boolean().required(),
+    activeGoogleCard: yup.boolean(),
+    streetAddress: yup.string(),
+    addressLocality: yup.string(),
+    addressRegion: yup.string(),
+    postalCode: yup.string(),
+    addressCountry: yup.string(),
+    minValue: yup.string(),
+    maxValue: yup.number(),
+    unitText: yup.string(),
+    isBoth: yup.boolean().default(false),
+    value: yup.number(),
+    OrgName: yup.string(),
+    logo: yup.string(),
+    website: yup.string(),
 });
 
 function CustomFormik() {
@@ -54,6 +68,20 @@ function CustomFormik() {
         applyNowLink: "",
         district: "",
         inbuiltForm: false,
+        activeGoogleCard: false,
+        streetAddress: "",
+        addressLocality: "",
+        addressRegion: "",
+        postalCode: "",
+        addressCountry: "",
+        minValue: "",
+        maxValue: "",
+        unitText: "",
+        isBoth: false,
+        value: "",
+        OrgName: "",
+        logo: "",
+        website: "",
     };
     const formik = useFormik({
         initialValues,
