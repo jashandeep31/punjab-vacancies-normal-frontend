@@ -2,6 +2,7 @@ import React from "react";
 import { Book, Briefcase, Clock, Factory, MapPin, Zap } from "lucide-react";
 import Link from "next/link";
 import striptags from "striptags";
+import moment from "moment";
 
 const JobCard = ({ job }) => {
     const RenderDescription = (text, limit) => {
@@ -83,13 +84,16 @@ const JobCard = ({ job }) => {
                     {truncatedDescription}
                 </div>
 
-                <div className="flex items-center gap-4 mt-4">
+                <div className="flex items-center justify-between gap-4 mt-4">
                     <Link
                         href={"/job/" + job.slug}
                         className="flex items-center gap-1 px-6 py-2 text-sm font-bold transition-all duration-300 rounded text-primary-500 bg-primary-50 hover:bg-primary-100"
                     >
                         Apply Now{" "}
                     </Link>
+                    <p className="my-2 text-xs text-slate-500">
+                        Posted on: {moment(job.createdAt).format("ll")}
+                    </p>
                 </div>
             </div>
         </div>
