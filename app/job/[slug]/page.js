@@ -9,6 +9,7 @@ import ApplyButtons from "./components/ApplyButtons";
 import Infinite from "./components/Infinite";
 import Script from "next/script";
 import moment from "moment/moment";
+import Link from "next/link";
 
 async function getJob({ params }) {
     const res = await fetch(BaseURL + "api/v1/job/" + params.slug, {
@@ -129,7 +130,12 @@ export default async function JobPage(props) {
                                 <span className="mr-2 font-bold capitalize">
                                     Location:
                                 </span>
-                                {jobData.district.name}
+                                <Link
+                                    className="underline duration-300 hover:text-slate-800"
+                                    href={`/${jobData.district.slug}`}
+                                >
+                                    {jobData.district.name}
+                                </Link>
                             </p>
                             <p>
                                 <span className="mr-2 font-bold capitalize">

@@ -14,9 +14,10 @@ export async function generateMetadata({ params, searchParams }) {
     const fetchURL = BaseURL + "api/v1/job/all" + "?district=" + district;
     const res = await fetch(fetchURL, { revalidate: 600 });
     if (res.status !== 200) {
-        notFound();
+        return notFound();
     }
     const { data } = await res.json();
+
     const jobs = await data.jobs.metadata[0];
     return {
         title: `${jobs.total} latest jobs in ${jobs.district.name} - Punjabvacancies`,
