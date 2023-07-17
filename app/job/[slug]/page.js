@@ -119,6 +119,21 @@ export default async function JobPage(props) {
                             {jobData.organization}
                         </p>
 
+                        {moment(moment(jobData.deadline).format("ll")).isBefore(
+                            moment().format("ll")
+                        ) ? (
+                            <div className="px-4 py-3 mt-3 bg-red-100 border border-red-500 rounded">
+                                Recruiter may not accept application as deadline
+                                is over.
+                            </div>
+                        ) : (
+                            <div className="px-2 py-1 mt-3 text-xs border rounded bg-slate-100 ">
+                                Don&apos;t pay any money to anyone for job
+                                application, test or interview. If any company
+                                ask you for money please report us immediately.
+                            </div>
+                        )}
+
                         <div className="grid gap-4 px-4 py-3 my-4 text-sm border card bg-slate-50 text-slate-500">
                             <p>
                                 <span className="mr-2 font-bold capitalize">
