@@ -118,7 +118,6 @@ export default async function JobPage(props) {
                         <p className="text-sm font-medium text-slate-500">
                             {jobData.organization}
                         </p>
-
                         {moment(moment(jobData.deadline).format("ll")).isBefore(
                             moment().format("ll")
                         ) ? (
@@ -133,7 +132,6 @@ export default async function JobPage(props) {
                                 ask you for money please report us immediately.
                             </div>
                         )}
-
                         <div className="grid gap-4 px-4 py-3 my-4 text-sm border card bg-slate-50 text-slate-500">
                             <p>
                                 <span className="mr-2 font-bold capitalize">
@@ -192,7 +190,6 @@ export default async function JobPage(props) {
                                 ).toLocaleDateString()}
                             </p>
                         </div>
-
                         <div className="mt-6">
                             <h4 className="text-sm font-bold text-slate-500">
                                 Interview Detail:
@@ -214,6 +211,79 @@ export default async function JobPage(props) {
                                     __html: jobData.description,
                                 }}
                             ></div>
+                        </div>
+                        <div className="mt-6">
+                            <h4 className="text-sm font-bold text-slate-500">
+                                Terms and conditions
+                            </h4>
+                            <div className="my-3 question">
+                                <h5 className="text-sm font-bold text-slate-800">
+                                    Who is going to be hire?
+                                </h5>
+                                <p className="text-sm text-slate-500">
+                                    {jobData.organization} is going to hire for
+                                    this job. We are not playing any kind of
+                                    role in the hiring process. We are just
+                                    providing you with information about jobs in
+                                    Punjab. For the latest information regarding
+                                    the job post, try to connect with the
+                                    officials of the organization to get more
+                                    information about the job.
+                                </p>
+                            </div>
+
+                            <div className="my-3 question">
+                                <h5 className="text-sm font-bold text-slate-800">
+                                    Is the job graduated?
+                                </h5>
+                                <p className="text-sm text-slate-500">
+                                    We don&apos;t graduate any jobs. We just
+                                    provide information about the job. Hiring a
+                                    candidate is totally dependent on the
+                                    organization. We are not responsible for any
+                                    kind of hiring process.
+                                </p>
+                            </div>
+                            <div className="my-3 question">
+                                <h5 className="text-sm font-bold text-slate-800">
+                                    How can I apply for a job at{" "}
+                                    {jobData.organization}?
+                                </h5>
+                                <p className="text-sm text-slate-500">
+                                    You can apply for this job by clicking on
+                                    the button below, if it is given. Otherwise,
+                                    you can check our interview details section
+                                    to get more information about the job.
+                                </p>
+                            </div>
+                            <div className="my-3 question">
+                                <h5 className="text-sm font-bold text-slate-800">
+                                    Till how long this job will be active?
+                                </h5>
+                                <p className="text-sm text-slate-500">
+                                    Deadline of the job is{" "}
+                                    {new Date(
+                                        jobData.deadline
+                                    ).toLocaleDateString()}
+                                    . But still if you have any kind of doubt
+                                    you can contact the organization to get more
+                                    information about the job.
+                                </p>
+                            </div>
+                            <div className="my-3 question">
+                                <h5 className="text-sm font-bold text-slate-800">
+                                    Is the Job Data Upto date?
+                                </h5>
+                                <p className="text-sm text-slate-500">
+                                    We always try to provide you with the latest
+                                    data for the job post. But still if you have
+                                    any kind of doubt you can contact the
+                                    organization to get more information about
+                                    the job. And if you find any kind of mistake
+                                    in the data provided by us, you can contact
+                                    us to get it corrected.
+                                </p>
+                            </div>
                         </div>
                         <ApplyButtons jobData={jobData} />
                         <Infinite district={jobData.district.slug} />
