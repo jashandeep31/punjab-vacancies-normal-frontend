@@ -15,6 +15,8 @@ export const metadata = {
         "job pvacancies, Punjab, government jobs, private sector jobs, Punjab job opportunities, job openings, careers, employment, job search, job listings, Punjab jobs, job portal, job board, latest vacancies, job alerts, job notifications",
 };
 
+import Script from "next/script";
+
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
@@ -33,6 +35,16 @@ export default function RootLayout({ children }) {
                     {children}
                     <Analytics />
                 </UserState>
+                <Script src="https://www.googletagmanager.com/gtag/js?id=G-DLLENX7Q9E" />
+                <Script id="google-analytics">
+                    {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'G-DLLENX7Q9E');
+        `}
+                </Script>
             </body>
         </html>
     );
