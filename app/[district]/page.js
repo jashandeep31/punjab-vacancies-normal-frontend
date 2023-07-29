@@ -20,9 +20,9 @@ export async function generateMetadata({ params, searchParams }) {
 
     const jobs = await data.jobs.metadata[0];
     return {
-        title: `${jobs.total} latest jobs in ${jobs.district.name} - Punjabvacancies`,
-        description: `Latest ${jobs.total} jobs in ${jobs.district.name} Govt and private both - Punjabvacancies`,
-        keywords: `${jobs.total} jobs in ${jobs.district.name} , latest jobs, govt jobs in ${jobs.district.name}  , private jobs in ${jobs.district.name} , jobs near me , ${jobs.district.name} , ${jobs.district.name} jobs , ${jobs.district.name} govt jobs , ${jobs.district.name} private jobs`,
+        title: `latest jobs in ${jobs.district.name} - Punjabvacancies`,
+        description: `Discover the latest jobs in ${jobs.district.name}.government and private sector jobs across various industries on punjabvacancies.live - find your dream career today!"`,
+        keywords: `Job Vacancies, ${jobs.district.name} Jobs, Latest Job Listings, Government Jobs ${jobs.district.name}, Private Sector Jobs, Career Opportunities, Dream Career, Job Search ${jobs.district.name}, Employment Opportunities, punjabvacancies.live, Up-to-date Job Listings, Professional Journey, Job Market ${jobs.district.name}, Job Seekers ${jobs.district.name}, Job Openings, Career Development, Job Search Website, Find Jobs in ${jobs.district.name}, Career in ${jobs.district.name}, Job Portal ${jobs.district.name}, Punjab Vacancies, private job near me, government job near me, job in ${jobs.district.name} for female, job in ${jobs.district.name} for femalem, ${jobs.district.name} jobs contact number`,
     };
 }
 
@@ -55,7 +55,8 @@ export default async function Home(props) {
                 <div className="grid gap-4 md:gap-6 md:grid-cols-4">
                     <div className=" md:col-span-3">
                         <h1 className="mb-3 text-lg font-bold mt:mb-6 md:text-2xl">
-                            Jobs in {jobsData.jobs.metadata[0].district.name}
+                            Latest Jobs in{" "}
+                            {jobsData.jobs.metadata[0].district.name}
                         </h1>
                         <DistrictFilter />
                         <div className="cards">

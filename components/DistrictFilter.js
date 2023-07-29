@@ -35,18 +35,16 @@ const DistrictFilter = () => {
                             }}
                             className="p-1 swiper-slide"
                         >
-                            <Link
+                            <p
                                 className={`px-3 py-1 text-xs border capitalize rounded-full hover:bg-slate-100 border-green-500 text-green-500 `}
-                                href={`/${currentOption}`}
                             >
                                 {currentOption === "all" ? "All" : null}
-
                                 {
                                     Districts.find(
                                         (slug) => slug.slug === currentOption
                                     )?.name
                                 }
-                            </Link>
+                            </p>
                         </SwiperSlide>
 
                         {currentOption === "all" ? null : (
