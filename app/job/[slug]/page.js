@@ -29,8 +29,9 @@ export async function generateMetadata({ params, searchParams }) {
     const { job } = await res.json();
     if (job) {
         return {
-            title: `${job.title} - ${job.organization}`,
-            description: `We are Hiring ${job.title} in ${job.organization} in ${job.district.name} in punjab - Punjabvacancies`,
+            title: `${job.title} job in ${job.district.name} | Join  ${job.organization} for Exciting Opportunities `,
+            description1: `Explore the latest ${job.title} job vacancies in ${job.district.name} with ${job.organization}. Join ${job.organization} and give a push to your life. `,
+            keywords: `${job.title} Jobs ${job.district.name}, ${job.district.name} ${job.title} Vacancies, ${job.organization} ${job.title} Careers, ${job.title} Positions ${job.district.name}, ${job.title} Recruitment ${job.district.name}, ${job.district.name} ${job.title} Employment, ${job.title} Opportunities ${job.organization}, ${job.district.name} ${job.title} Jobs, Join ${job.organization} as a ${job.title}, ${job.title} Openings ${job.district.name}, ${job.title} Jobs at ${job.organization}, ${job.organization} Career Opportunities, Apply for ${job.title} Job in ${job.district.name}, ${job.title} Vacancies in ${job.organization}, ${job.district.name},`,
         };
     }
 }

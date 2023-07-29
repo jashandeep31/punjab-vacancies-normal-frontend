@@ -11,9 +11,9 @@ import DistrictFilter from "@/components/DistrictFilter";
 export const metadata = {
     title: "Latest Jobs in Punjab - punjabvacancies",
     description:
-        "Find the latest job vacancies in Punjab on PunjabVacancies.live. We provide up-to-date listings for government and private sector jobs across various industries. Discover your dream career in Punjab today",
+        "Discover the latest jobs in Punjab on PunjabVacancies.live. We offer up-to-date listings for government and private sector jobs across various industries. Find your dream career in Punjab today and kickstart your professional journey.",
     keywords:
-        "job alert punjab  , Punjab, government jobs, private sector jobs, Punjab job opportunities, job openings, careers, employment, job search, job listings, Punjab jobs, job portal, job board, latest vacancies, job alerts, job notifications , ",
+        "Job Vacancies, Punjab Jobs, Latest Job Listings, Government Jobs Punjab, Private Sector Jobs, Career Opportunities, Dream Career, Job Search Punjab, Employment Opportunities, PunjabVacancies.live, Up-to-date Job Listings, Professional Journey, Job Market Punjab, Job Seekers Punjab, Job Openings, Career Development, Job Search Website, Find Jobs in Punjab, Career in Punjab, Job Portal Punjab ",
 };
 
 async function getJobs(searchParams) {
@@ -43,7 +43,7 @@ export default async function Home(props) {
                 <div className="grid gap-4 md:gap-6 md:grid-cols-4">
                     <div className=" md:col-span-3">
                         <h1 className="mb-4 text-lg font-bold md:text-2xl">
-                            Jobs
+                            Latest Jobs in Punjab
                         </h1>
 
                         <DistrictFilter />

@@ -182,9 +182,9 @@ const Navbar = () => {
             <div className="fixed top-0 z-10 flex items-center w-full h-16 bg-white border-b">
                 <div className="container flex items-center justify-between mx-auto">
                     <Link href="/">
-                        <h1 id="Logo" className="font-bold">
+                        <h2 id="Logo" className="font-bold">
                             Punjab Vacancies
-                        </h1>
+                        </h2>
                     </Link>
                     <ul className="items-center hidden text-sm md:flex gap-7">
                         <LinksRender />

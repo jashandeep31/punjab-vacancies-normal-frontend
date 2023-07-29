@@ -12,7 +12,7 @@ const Footer = () => {
             >
                 <div className="container mx-auto ">
                     <div className=" top">
-                        <h1 className="text-lg font-bold">Punjab Vacancies</h1>
+                        <h2 className="text-lg font-bold">Punjab Vacancies</h2>
                         <p className="text-xs font-medium text-slate-500">
                             Get update of every job in punjab.
                         </p>
