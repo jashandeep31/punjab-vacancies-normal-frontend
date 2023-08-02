@@ -193,12 +193,12 @@ export default async function JobPage(props) {
                             <h4 className="text-sm font-bold text-slate-500">
                                 Interview Detail:
                             </h4>
-                            <div1
+                            <div
                                 className="text-sm"
                                 dangerouslySetInnerHTML={{
                                     __html: jobData.interviewDetails,
                                 }}
-                            ></div1>
+                            ></div>
                         </div>
                         <div className="mt-6">
                             <h4 className="text-sm font-bold text-slate-500">
