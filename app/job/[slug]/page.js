@@ -13,9 +13,7 @@ import Link from "next/link";
 
 async function getJob({ params }) {
     const res = await fetch(BaseURL + "api/v1/job/" + params.slug, {
-        next: {
-            revalidate: 10,
-        },
+        cache: "no-store",
     });
     const data = await res.json();
     return data.job;

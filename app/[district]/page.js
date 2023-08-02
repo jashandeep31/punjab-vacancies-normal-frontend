@@ -12,7 +12,7 @@ import { notFound } from "next/navigation";
 export async function generateMetadata({ params, searchParams }) {
     const { district } = params;
     const fetchURL = BaseURL + "api/v1/job/all" + "?district=" + district;
-    const res = await fetch(fetchURL, { revalidate: 600 });
+    const res = await fetch(fetchURL, { cache: "no-store" });
     if (res.status !== 200) {
         return notFound();
     }
