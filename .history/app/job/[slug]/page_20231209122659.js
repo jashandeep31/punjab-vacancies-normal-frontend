@@ -40,7 +40,7 @@ export default async function JobPage(props) {
         return <CustomError />;
     }
     let baseSalaryValues;
-    if (jobData?.activeGoogleCard) {
+    if (jobData.activeGoogleCard) {
         if (jobData?.baseSalary?.value?.isBoth)
             baseSalaryValues = {
                 "@type": "QuantitativeValue",
@@ -51,8 +51,8 @@ export default async function JobPage(props) {
         else {
             baseSalaryValues = {
                 "@type": "QuantitativeValue",
-                value: jobData?.baseSalary?.value?.value,
-                unitText: jobData?.baseSalary?.value?.unitText,
+                value: jobData.baseSalary.value.value,
+                unitText: jobData.baseSalary.value.unitText,
             };
         }
     }
@@ -73,8 +73,8 @@ export default async function JobPage(props) {
         hiringOrganization: {
             "@type": "Organization",
             name: `${jobData.organization}`,
-            sameAs: jobData?.gorganization?.website,
-            logo: jobData?.gorganization?.logo,
+            sameAs: jobData.gorganization.website,
+            logo: jobData.gorganization.logo,
         },
         jobLocation: {
             "@type": "Place",

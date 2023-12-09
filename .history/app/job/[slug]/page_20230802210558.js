@@ -40,19 +40,19 @@ export default async function JobPage(props) {
         return <CustomError />;
     }
     let baseSalaryValues;
-    if (jobData?.activeGoogleCard) {
-        if (jobData?.baseSalary?.value?.isBoth)
+    if (jobData.activeGoogleCard) {
+        if (jobData.baseSalary.value.isBoth)
             baseSalaryValues = {
                 "@type": "QuantitativeValue",
-                minValue: jobData?.baseSalary?.value?.minValue,
-                maxValue: jobData?.baseSalary?.value?.maxValue,
-                unitText: jobData?.baseSalary?.value?.unitText,
+                minValue: jobData.baseSalary.value.minValue,
+                maxValue: jobData.baseSalary.value.maxValue,
+                unitText: jobData.baseSalary.value.unitText,
             };
         else {
             baseSalaryValues = {
                 "@type": "QuantitativeValue",
-                value: jobData?.baseSalary?.value?.value,
-                unitText: jobData?.baseSalary?.value?.unitText,
+                value: jobData.baseSalary.value.value,
+                unitText: jobData.baseSalary.value.unitText,
             };
         }
     }
@@ -73,18 +73,18 @@ export default async function JobPage(props) {
         hiringOrganization: {
             "@type": "Organization",
             name: `${jobData.organization}`,
-            sameAs: jobData?.gorganization?.website,
-            logo: jobData?.gorganization?.logo,
+            sameAs: jobData.gorganization.website,
+            logo: jobData.gorganization.logo,
         },
         jobLocation: {
             "@type": "Place",
             address: {
                 "@type": "PostalAddress",
-                streetAddress: jobData?.jobLocation?.address?.streetAddress,
-                addressLocality: jobData?.jobLocation?.address?.addressLocality,
-                addressRegion: jobData?.jobLocation?.address?.addressRegion,
-                postalCode: jobData?.jobLocation?.address?.postalCode,
-                addressCountry: jobData?.jobLocation?.address?.addressCountry,
+                streetAddress: jobData.jobLocation.address.streetAddress,
+                addressLocality: jobData.jobLocation.address.addressLocality,
+                addressRegion: jobData.jobLocation.address.addressRegion,
+                postalCode: jobData.jobLocation.address.postalCode,
+                addressCountry: jobData.jobLocation.address.addressCountry,
             },
         },
         baseSalary: {

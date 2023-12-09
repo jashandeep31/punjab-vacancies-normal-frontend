@@ -73,8 +73,8 @@ export default async function JobPage(props) {
         hiringOrganization: {
             "@type": "Organization",
             name: `${jobData.organization}`,
-            sameAs: jobData?.gorganization?.website,
-            logo: jobData?.gorganization?.logo,
+            sameAs: jobData.gorganization.website,
+            logo: jobData.gorganization.logo,
         },
         jobLocation: {
             "@type": "Place",
